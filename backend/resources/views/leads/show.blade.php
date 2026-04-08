@@ -28,10 +28,13 @@
                     <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center text-2xl font-bold text-white mb-3">
                         {{ strtoupper(substr($lead->username, 0, 1)) }}
                     </div>
-                    <h2 class="text-lg font-bold text-white">@{{ $lead->username }}</h2>
-                    <a href="{{ $lead->profile_url }}" target="_blank" rel="noopener"
-                       class="text-xs text-green-400 hover:text-green-300 mt-1 transition-colors">
-                        View on Instagram ↗
+                    <a href="https://www.instagram.com/{{ $lead->username }}/" target="_blank" rel="noopener"
+                       class="text-lg font-bold text-white hover:text-green-400 transition-colors">
+                        @{{ $lead->username }}
+                    </a>
+                    <a href="https://www.instagram.com/{{ $lead->username }}/" target="_blank" rel="noopener"
+                       class="text-xs text-green-400 hover:text-green-300 mt-1 transition-colors flex items-center gap-1">
+                        Open Instagram ↗
                     </a>
                 </div>
 
@@ -39,7 +42,7 @@
                     @if($lead->country)
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500">Country</span>
-                            <span class="text-white font-medium">{{ $lead->country }}</span>
+                            <span class="text-white font-medium">🇧🇷 {{ $lead->country }}</span>
                         </div>
                     @endif
 
@@ -47,6 +50,20 @@
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500">Gender</span>
                             <span class="text-white font-medium capitalize">{{ $lead->gender }}</span>
+                        </div>
+                    @endif
+
+                    @if($lead->age)
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">Age</span>
+                            <span class="text-white font-medium">{{ $lead->age }} years old</span>
+                        </div>
+                    @endif
+
+                    @if($lead->job)
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">Job</span>
+                            <span class="text-white font-medium text-xs">{{ $lead->job }}</span>
                         </div>
                     @endif
 

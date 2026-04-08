@@ -9,9 +9,9 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule): void
     {
-        // Run the Instagram scraper daily at 9:00 AM
+        // Run daily at 8:00 PM Bangladesh time (UTC+6 → 14:00 UTC)
         $schedule->command('leadbot:scrape --max=10')
-                 ->dailyAt('09:00')
+                 ->dailyAt('14:00')   // 14:00 UTC = 20:00 Bangladesh (BST)
                  ->withoutOverlapping()
                  ->runInBackground()
                  ->appendOutputTo(storage_path('logs/scraper.log'));

@@ -64,7 +64,16 @@ class ScrapeInstagram extends Command
         $skipped    = 0;
         $duplicates = 0;
 
+        // Pre-load existing usernames to skip DB hits inside loop
+        $existing = Lead::pluck('username')->map(fn($u) => strtolower($u))->flip()->toArray();
+
         foreach (array_slice($rawLeads, 0, $max) as $raw) {
+            // Skip if already in DB
+            if (isset($existing[strtolower($raw['username'] ?? '')])) {
+                $this->warn("  DUP   @{$raw['username']} — already in DB (pre-check)");
+                $duplicates++;
+                continue;
+            }
             $filtered = $this->filterService->filter($raw);
 
             if (! $filtered) {
@@ -79,6 +88,8 @@ class ScrapeInstagram extends Command
                     'bio'            => $filtered['bio'] ?? null,
                     'country'        => $filtered['country'],
                     'gender'         => $filtered['gender'],
+                    'age'            => $filtered['age'] ?? null,
+                    'job'            => $filtered['job'] ?? null,
                     'source_keyword' => $filtered['source_keyword'],
                     'tag'            => $filtered['tag'],
                     'score'          => $filtered['score'],

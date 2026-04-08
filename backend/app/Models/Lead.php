@@ -15,6 +15,8 @@ class Lead extends Model
         'bio',
         'country',
         'gender',
+        'age',
+        'job',
         'source_keyword',
         'tag',
         'notes',
@@ -24,6 +26,7 @@ class Lead extends Model
 
     protected $casts = [
         'score'        => 'integer',
+        'age'          => 'integer',
         'is_contacted' => 'boolean',
         'created_at'   => 'datetime',
         'updated_at'   => 'datetime',

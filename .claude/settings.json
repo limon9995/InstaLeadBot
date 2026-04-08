@@ -23,7 +23,10 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/dashboard)",
       "Bash(git init:*)",
       "Bash(git branch:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)"
     ]
   }
 }

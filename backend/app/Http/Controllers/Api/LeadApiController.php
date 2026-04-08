@@ -49,6 +49,8 @@ class LeadApiController extends Controller
                     'bio'            => $filtered['bio'] ?? null,
                     'country'        => $filtered['country'],
                     'gender'         => $filtered['gender'],
+                    'age'            => $filtered['age'] ?? null,
+                    'job'            => $filtered['job'] ?? null,
                     'source_keyword' => $filtered['source_keyword'],
                     'tag'            => $filtered['tag'],
                     'score'          => $filtered['score'],

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\ScrapeController;
 use Illuminate\Support\Facades\Route;
 
 // ─── Auth Routes ──────────────────────────────────────────────────────────
@@ -19,6 +20,10 @@ Route::middleware('auth')->group(function () {
 
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Manual Scraper Controls
+    Route::post('/scrape/run',     [ScrapeController::class, 'run'])->name('scrape.run');
+    Route::post('/scrape/dry-run', [ScrapeController::class, 'dryRun'])->name('scrape.dry-run');
 
     // Leads
     Route::prefix('leads')->name('leads.')->group(function () {

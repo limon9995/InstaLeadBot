@@ -28,10 +28,25 @@
                     <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center text-2xl font-bold text-white mb-3">
                         {{ strtoupper(substr($lead->username, 0, 1)) }}
                     </div>
-                    <a href="https://www.instagram.com/{{ $lead->username }}/" target="_blank" rel="noopener"
-                       class="text-lg font-bold text-white hover:text-green-400 transition-colors">
-                        @{{ $lead->username }}
-                    </a>
+
+                    {{-- ID badge --}}
+                    <div class="text-xs text-gray-600 mb-1">ID #{{ $lead->id }}</div>
+
+                    {{-- Username + Copy button --}}
+                    <div class="flex items-center gap-2">
+                        <a href="https://www.instagram.com/{{ $lead->username }}/" target="_blank" rel="noopener"
+                           class="text-lg font-bold text-white hover:text-green-400 transition-colors">
+                            {{ '@' . $lead->username }}
+                        </a>
+                        <button onclick="copyUsername('{{ $lead->username }}')" title="Copy username"
+                                style="padding:3px 6px; background:#1f2937; border:1px solid #374151; border-radius:6px; color:#9ca3af; cursor:pointer; font-size:11px; line-height:1;"
+                                onmouseover="this.style.background='#374151';this.style.color='#fff'" onmouseout="this.style.background='#1f2937';this.style.color='#9ca3af'">
+                            <svg style="width:12px;height:12px;display:inline;vertical-align:middle;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+
                     <a href="https://www.instagram.com/{{ $lead->username }}/" target="_blank" rel="noopener"
                        class="text-xs text-green-400 hover:text-green-300 mt-1 transition-colors flex items-center gap-1">
                         Open Instagram ↗
@@ -169,3 +184,18 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+function copyUsername(username) {
+    navigator.clipboard.writeText('@' + username).then(() => {
+        // Show toast
+        const toast = document.createElement('div');
+        toast.innerText = '@' + username + ' copied!';
+        toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#22c55e;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:opacity .3s;';
+        document.body.appendChild(toast);
+        setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 2000);
+    });
+}
+</script>
+@endpush

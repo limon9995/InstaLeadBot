@@ -93,7 +93,7 @@
                         <a href="https://www.instagram.com/{{ $lead->username }}/" target="_blank" rel="noopener"
                            style="color:#fff; font-weight:600; text-decoration:none; display:flex; align-items:center; gap:5px;"
                            onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='#fff'">
-                            @{{ $lead->username }}
+                            {{ '@'.$lead->username }}
                             <svg style="width:12px;height:12px;color:#4b5563;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                             </svg>
@@ -164,7 +164,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
                         </a>
-                        <form method="POST" action="{{ route('leads.destroy', $lead) }}" style="display:inline;" onsubmit="return confirm('Delete @{{ $lead->username }}?')">
+                        <form method="POST" action="{{ route('leads.destroy', $lead) }}" style="display:inline;" onsubmit="return confirm('Delete {{ $lead->username }}?')">
                             @csrf @method('DELETE')
                             <button type="submit" style="padding:5px; border-radius:6px; border:none; cursor:pointer; background:transparent; color:#6b7280; display:inline-flex;"
                                     onmouseover="this.style.background='rgba(127,29,29,.2)';this.style.color='#f87171'" onmouseout="this.style.background='transparent';this.style.color='#6b7280'">

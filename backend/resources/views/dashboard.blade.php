@@ -175,7 +175,7 @@
                         <div class="flex items-center gap-2">
                             <a href="{{ route('leads.show', $lead) }}"
                                class="text-sm font-medium text-white hover:text-green-400 transition-colors">
-                                @{{ $lead->username }}
+                                {{ '@'.$lead->username }}
                             </a>
                             <span class="text-xs px-2 py-0.5 rounded-full font-medium {{ $lead->tag_badge_color }}">
                                 {{ ucfirst($lead->tag) }}

@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php --version)",
+      "Bash(npm --version)",
+      "Bash(chmod +x /home/md-limon-hossain/SAAS/LeadBot/setup.sh)",
+      "Bash(composer --version)",
+      "Bash(mysql --version)",
+      "Bash(sudo mysql:*)",
+      "Bash(mysql -u root -e \"CREATE DATABASE IF NOT EXISTS leadbot CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; SHOW DATABASES;\")",
+      "Bash(mysql -u root -proot -e \"CREATE DATABASE IF NOT EXISTS leadbot CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; SHOW DATABASES;\")",
+      "Bash(php artisan:*)",
+      "Bash(mysql -u root -proot leadbot -e \"SHOW TABLES;\")",
+      "Bash(mysql -u root -proot leadbot -e \"SELECT id, name, email, created_at FROM users;\")",
+      "Bash(sed -i 's|^SCRAPER_PATH=.*|SCRAPER_PATH=/home/md-limon-hossain/SAAS/LeadBot/scraper/scraper.js|' .env)",
+      "Bash(sed -i 's|^NODE_BINARY=.*|NODE_BINARY=/usr/bin/node|' .env)",
+      "Bash(chmod -R 775 storage bootstrap/cache)",
+      "Bash(mysql -u root -proot leadbot -e \"SELECT id, username, bio, country, gender, tag, score FROM leads;\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/login)",
+      "Bash(curl -s http://localhost:8000/login)",
+      "Bash(pkill -f \"artisan serve\")",
+      "Bash(mysql -u root -proot leadbot -e \"SELECT COUNT\\(*\\) as total_leads, COUNT\\(CASE WHEN tag='hot' THEN 1 END\\) as hot FROM leads;\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/dashboard)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+# Laravel
+backend/.env
+backend/vendor/
+backend/node_modules/
+backend/storage/logs/*.log
+backend/storage/framework/cache/
+backend/storage/framework/sessions/
+backend/storage/framework/views/
+backend/bootstrap/cache/*.php
+backend/public/storage
+
+# Scraper
+scraper/node_modules/
+scraper/session.json
+scraper/scraper.log
+scraper/.env
+
+# System
+.DS_Store
+Thumbs.db
+*.log

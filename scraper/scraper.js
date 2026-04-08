@@ -290,18 +290,36 @@ async function scrapeHashtag(page, hashtag, keyword, maxLeads) {
 
 async function main() {
   if (IS_DRY_RUN) {
-    logger.info('DRY RUN mode — outputting mock data.');
+    logger.info('DRY RUN mode — outputting mock data (Brazil male crypto leads).');
     const mockData = [
       {
-        username: 'crypto_john_doe',
-        bio: '🇺🇸 Crypto trader | Bitcoin investor | DeFi enthusiast | He/Him | 5+ years trading',
-        source_keyword: 'crypto trader',
+        username: 'gabriel_btc_br',
+        bio: '🇧🇷 Trader de crypto | Bitcoin investor | São Paulo | 28 anos | 💼 Analista financeiro | hodl gang',
+        source_keyword: 'crypto trader brazil',
         scraped_at: new Date().toISOString(),
       },
       {
-        username: 'forexking_mike',
-        bio: '🇬🇧 Forex trader | Technical analyst | EUR/USD specialist | DM for signals',
-        source_keyword: 'forex trader',
+        username: 'pedro_forex_brasil',
+        bio: '🇧🇷 Forex trader | BTC & ETH | Rio de Janeiro | ele/dele | born 1995 | 💼 Trader independente',
+        source_keyword: 'forex brasil',
+        scraped_at: new Date().toISOString(),
+      },
+      {
+        username: 'lucas_cripto_sp',
+        bio: 'Investidor de criptomoeda 🇧🇷 | Bitcoin | DeFi | Campinas, Brasil | 25yo | 💼 Engenheiro de software',
+        source_keyword: 'investidor bitcoin brasil',
+        scraped_at: new Date().toISOString(),
+      },
+      {
+        username: 'rafael_hodl_brasil',
+        bio: '🇧🇷 Crypto enthusiast | Binance trader | Belo Horizonte | ele | 30 anos | sinais gratuitos',
+        source_keyword: 'crypto brasil',
+        scraped_at: new Date().toISOString(),
+      },
+      {
+        username: 'thiago_btc_rio',
+        bio: 'Bitcoin & Ethereum 🇧🇷 | Trader desde 2018 | Rio de Janeiro | 💼 CEO at CriptoHub | DOB: 1993',
+        source_keyword: 'bitcoinbrasil',
         scraped_at: new Date().toISOString(),
       },
     ];

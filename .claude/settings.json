@@ -31,7 +31,11 @@
       "Bash(curl -sc /tmp/cookies.txt http://localhost:8000/login -o /dev/null)",
       "Bash(curl -sb /tmp/cookies.txt -X POST http://localhost:8000/login -d \"email=admin@leadbot.local&password=Admin@12345&_token=\" -c /tmp/cookies.txt -o /dev/null -L)",
       "Bash(curl -sb /tmp/cookies.txt http://localhost:8000/leads)",
-      "Bash(mysql -u root -proot leadbot -e \"SELECT id, username, country, age, job, tag, score FROM leads ORDER BY id DESC LIMIT 6;\")"
+      "Bash(mysql -u root -proot leadbot -e \"SELECT id, username, country, age, job, tag, score FROM leads ORDER BY id DESC LIMIT 6;\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/leads)",
+      "Bash(mysql -u root -proot leadbot -e \"DELETE FROM leads WHERE country != 'Brazil' OR country IS NULL;\")",
+      "Bash(mysql -u root -proot leadbot -e \"SELECT id, username, country, age, job FROM leads;\")",
+      "Bash(mysql -u root -proot leadbot -e \"DELETE FROM leads WHERE country != 'Brazil' OR country IS NULL; SELECT id, username, country, age FROM leads ORDER BY id;\")"
     ]
   }
 }

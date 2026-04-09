@@ -86,6 +86,10 @@ class LeadController extends Controller
         return response()->json([
             'success'      => true,
             'is_contacted' => $lead->is_contacted,
+            'username'     => $lead->username,
+            'age'          => $lead->age,
+            'job'          => $lead->job,
+            'tag'          => $lead->tag,
         ]);
     }
 
